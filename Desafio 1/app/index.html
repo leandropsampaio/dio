@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pay Chat MVP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="chat-panel">
+        <header class="chat-header">
+          <div>
+            <h1>Pay Chat</h1>
+            <p>Converse com o seu assistente financeiro</p>
+          </div>
+          <button id="reset-btn">Nova sessão</button>
+        </header>
+        <div id="chat-log" class="chat-log" role="log" aria-live="polite"></div>
+        <form id="chat-form" class="chat-form" autocomplete="off">
+          <input
+            id="chat-input"
+            class="chat-input"
+            name="message"
+            placeholder="Ex.: gastei R$20 com café"
+            required
+          />
+          <button type="submit">Enviar</button>
+        </form>
+        <section class="suggestions" aria-label="Sugestões de comando">
+          <p>Dicas rápidas:</p>
+          <div class="chips">
+            <button type="button" data-suggest="gastei R$45 no supermercado">Gasto supermercado</button>
+            <button type="button" data-suggest="recebi R$1500 de salário">Receita salário</button>
+            <button type="button" data-suggest="quanto já gastei em alimentação?">Gastos alimentação</button>
+            <button type="button" data-suggest="quais metas tenho esta semana?">Metas da semana</button>
+          </div>
+        </section>
+      </section>
+      <aside class="insights-panel">
+        <section class="card" aria-label="Resumo financeiro">
+          <h2>Resumo financeiro</h2>
+          <dl class="summary">
+            <div>
+              <dt>Total recebido</dt>
+              <dd id="summary-income">R$ 0,00</dd>
+            </div>
+            <div>
+              <dt>Total gasto</dt>
+              <dd id="summary-expense">R$ 0,00</dd>
+            </div>
+            <div>
+              <dt>Saldo do mês</dt>
+              <dd id="summary-balance">R$ 0,00</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="card" aria-label="Metas sugeridas">
+          <h2>Metas sugeridas</h2>
+          <ul id="goals-list" class="goals-list"></ul>
+        </section>
+        <section class="card card-transactions" aria-label="Histórico de transações">
+          <h2>Últimas transações</h2>
+          <ul id="transactions-list" class="transactions"></ul>
+        </section>
+      </aside>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
